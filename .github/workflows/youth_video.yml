@@ -18,6 +18,9 @@ jobs:
       YOUTH_VIDEO3: ${{ secrets.YOUTH_VIDEO3 }}
       YOUTH_VIDEO4: ${{ secrets.YOUTH_VIDEO4 }}
       YOUTH_VIDEO5: ${{ secrets.YOUTH_VIDEO5 }} 
+      YOUTH_VIDEO6: ${{ secrets.YOUTH_VIDEO6 }}
+      YOUTH_VIDEO7: ${{ secrets.YOUTH_VIDEO7 }}
+      YOUTH_VIDEO8: ${{ secrets.YOUTH_VIDEO8 }} 
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -29,14 +32,14 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【中青看点账号1-视频观看-51个】'
+      - name: '运行 【中青看点账号1-视频观看1-51个】'
         if: env.YOUTH_VIDEO
         run: |
           node Task/Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO }}
 
-      - name: '运行 【中青看点账号1-视频观看-50个】'
+      - name: '运行 【中青看点账号1-视频观看2-50个】'
         if: env.YOUTH_VIDEO2
         run: |
           node Task/Youth_Read.js
@@ -61,3 +64,22 @@ jobs:
           node Task/Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_VIDEO5 }}
+
+      - name: '运行 【中青看点账号4-视频观看1-54个】'
+        if: env.YOUTH_VIDEO6
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_VIDEO6 }}
+      - name: '运行 【中青看点账号4-视频观看2-54个】'
+        if: env.YOUTH_VIDEO7
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_VIDEO7 }}
+      - name: '运行 【中青看点账号4-视频观看3-21个】'
+        if: env.YOUTH_VIDEO8
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_VIDEO8 }}
