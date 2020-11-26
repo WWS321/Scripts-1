@@ -21,6 +21,9 @@ jobs:
       YOUTH_READ6: ${{ secrets.YOUTH_READ6 }}
       YOUTH_READ7: ${{ secrets.YOUTH_READ7 }}
       YOUTH_READ8: ${{ secrets.YOUTH_READ8 }}
+      YOUTH_READ9: ${{ secrets.YOUTH_READ9 }}
+      YOUTH_READ10: ${{ secrets.YOUTH_READ10 }}
+      YOUTH_READ11: ${{ secrets.YOUTH_READ11 }}
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -83,3 +86,22 @@ jobs:
           node Task/Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ8 }}
+      
+      - name: '运行 【中青看点账号4-文章阅读1-54篇】'
+        if: env.YOUTH_READ9         
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ9 }}
+      - name: '运行 【中青看点账号4-文章阅读2-54篇】'
+        if: env.YOUTH_READ10         
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ10 }}
+      - name: '运行 【中青看点账号4-文章阅读3-54篇】'
+        if: env.YOUTH_READ11         
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ11 }}
